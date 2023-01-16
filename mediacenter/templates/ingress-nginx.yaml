@@ -10,7 +10,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.org.project }}
   source:
-    path: charts/ingress-nginx
+    path: ingress-nginx
     repoURL: "https://github.com/kubernetes/ingress-nginx/charts/"
     targetRevision: main
   syncPolicy:
