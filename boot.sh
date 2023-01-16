@@ -8,4 +8,5 @@ microk8s kubectl create namespace argocd
 microk8s kubectl apply -n argocd -f bootstrap/argocd-install.yaml 
 helm install mediacenter mediacenter
 # expose argo through proxy
-# kubectl get secrets/argocd-initial-admin-secret -n argocd --template={{.data.password}} | base64 -d
+#kubectl port-forward podname 8080:8080 -n argocd
+#kubectl get secrets/argocd-initial-admin-secret -n argocd --template={{.data.password}} | base64 -d
