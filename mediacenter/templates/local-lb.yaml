@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: local-lb
+  name: metallb
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -11,7 +11,7 @@ spec:
     namespace: metallb
   project: {{ .Values.org.project }}
   source:
-    path: apps/local-lb
+    path: apps/metallb
     repoURL: "git@github.com:sefs93/k8s-media.git"
     targetRevision: HEAD
   syncPolicy:

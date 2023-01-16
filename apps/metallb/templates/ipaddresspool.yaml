@@ -2,7 +2,7 @@ apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
   name: home-pool
-  namespace: metallb-system
+  namespace: {{ .Values.namespace }}
 spec:
   addresses:
   - 10.10.100.0-10.10.254.254
