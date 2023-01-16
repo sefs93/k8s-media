@@ -4,5 +4,5 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   source:
-    repoURL: git@github.com:sefs93/k8s-media.git
+    repoURL: https://github.com/sefs93/k8s-media.git
     targetRevision: HEAD

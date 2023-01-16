@@ -6,6 +6,6 @@ microk8s config > ~/.kube/config
 
 microk8s kubectl create namespace argocd
 microk8s kubectl apply -n argocd -f bootstrap/argocd-install.yaml 
-helm apply mediacenter mediacenter
-# kubectl get pods -n argocd | grep argocd-server #Pod name is pass, user: admin # it's in argocd-initial-admin-secret secret
-kubectl get secrets/argocd-initial-admin-secret -n argocd --template={{.data.password}} | base64 -d
+helm install mediacenter mediacenter
+# expose argo through proxy
+# kubectl get secrets/argocd-initial-admin-secret -n argocd --template={{.data.password}} | base64 -d
