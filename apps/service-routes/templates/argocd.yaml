@@ -10,7 +10,8 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   rules:
-  - http:
+  - host: argocd.444444.cyou
+    http:
       paths:
       - pathType: Prefix
         path: /argocd
