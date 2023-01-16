@@ -12,7 +12,7 @@ spec:
   source:
     path: charts/ingress-nginx
     repoURL: "https://github.com/kubernetes/ingress-nginx"
-    targetRevision: HEAD
+    targetRevision: main
   syncPolicy:
     automated: {}
     syncOptions:
