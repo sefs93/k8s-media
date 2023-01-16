@@ -10504,6 +10504,7 @@ spec:
       containers:
       - command:
         - argocd-server
+        - --insecure
         env:
         - name: ARGOCD_SERVER_INSECURE
           valueFrom:
@@ -10691,6 +10692,8 @@ spec:
               key: application.namespaces
               name: argocd-cmd-params-cm
               optional: true
+        - name: ARGOCD_EXEC_TIMEOUT
+          value: "5m"
         image: quay.io/argoproj/argocd:v2.5.4
         imagePullPolicy: Always
         livenessProbe:
