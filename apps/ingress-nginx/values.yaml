@@ -9,6 +9,7 @@ ingress-nginx:
       enabled: false
     extraArgs:
       default-ssl-certificate: "nginx/default-ssl-certificate"
+      enable-ssl-passthrough
     service:
       enabled: false
     resources:

@@ -7,7 +7,3 @@ spec:
   source:
     repoURL: https://github.com/sefs93/k8s-media
     targetRevision: HEAD
-
-controller:
-  extraArgs:
-    - enable-ssl-passthrough
