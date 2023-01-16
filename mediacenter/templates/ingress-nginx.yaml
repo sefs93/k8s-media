@@ -12,8 +12,8 @@ spec:
   project: {{ .Values.org.project }}
   source:
     path: apps/ingress-nginx
-    repoURL: "git@github.com:sefs93/k8s-media.git"
-    targetRevision: HEAD
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     automated: {}
     syncOptions:

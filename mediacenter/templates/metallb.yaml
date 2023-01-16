@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-guestbook
+  name: metallb
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: {{ .Values.org.namespace }}
     server: {{ .Values.spec.destination.server }}
+    namespace: metallb
   project: {{ .Values.org.project }}
   source:
-    path: helm-guestbook
-    repoURL: "https://github.com/argoproj/argocd-example-apps"
-    targetRevision: HEAD
+    path: apps/metallb
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     automated: {}
     syncOptions:

@@ -5,12 +5,12 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    server: https://kubernetes.default.svc
-  project: default
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.org.project }}
   source:
     path: mediacenter
-    repoURL: git@github.com:sefs93/k8s-media.git
-    targetRevision: HEAD
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     automated: {}
     syncOptions:
