@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: {{ .Values.org.project }}
+  namespace: argocd
+spec:
+  destinations:
+    - name: '*'
+      namespace: '*'
+      server: '*'
+  orphanedResources:
+    ignore:
+      - {}
+    warn: true
+  sourceRepos:
+    - '*'
