@@ -1,18 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: dashboard-ingress
-  namespace: kube-system
+  name: argocd-ingress
+  namespace: argocd
   annotations:
     ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - http:
       paths:
-        - path: /k8s
+        - path: /argocd
           pathType: Prefix
           backend:
             service:
-              name: kubernetes-dashboard
+              name: argocd-server
               port: 
-                number: 32159
+                number: 443
