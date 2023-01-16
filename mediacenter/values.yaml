@@ -1,0 +1,9 @@
+org:
+  project: "mediacenter"
+  namespace: "media"
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/sefs93/k8s-media
+    targetRevision: HEAD
