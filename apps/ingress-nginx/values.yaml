@@ -8,8 +8,8 @@ ingress-nginx:
     publishService:
       enabled: false
     extraArgs:
-      - default-ssl-certificate: "nginx/default-ssl-certificate"
-      - enable-ssl-passthrough
+      default-ssl-certificate: "nginx/default-ssl-certificate"
+      enable-ssl-passthrough: true
     service:
       enabled: false
     resources:
