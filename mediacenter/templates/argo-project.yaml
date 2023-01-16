@@ -4,10 +4,16 @@ metadata:
   name: {{ .Values.org.project }}
   namespace: argocd
 spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
   destinations:
     - name: '*'
       namespace: '*'
       server: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
   orphanedResources:
     ignore:
       - {}
