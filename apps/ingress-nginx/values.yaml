@@ -5,13 +5,9 @@ ingress-nginx:
     kind: DaemonSet
     metrics:
       enabled: true
-    publishService:
-      enabled: false
     extraArgs:
       default-ssl-certificate: "nginx/default-ssl-certificate"
       enable-ssl-passthrough: true
-    service:
-      enabled: false
     resources:
       limits:
         cpu: 100m
