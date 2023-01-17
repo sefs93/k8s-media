@@ -16,8 +16,7 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
       valueFiles:
-      - ../global-values/dns.yaml
-      - ../global-values/argo.yaml
+      - ../../global-values/dns.yaml
   syncPolicy:
     automated: {}
     syncOptions:
