@@ -8,6 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/hostname: {{ .Values.dns.zone }}
+    cert-manager.io/issuer: "letsencrypt-staging"
 spec:
   rules:
   - host: argocd.{{ .Values.dns.zone }}
@@ -23,7 +24,8 @@ spec:
   tls:
   - hosts:
     - argocd.{{ .Values.dns.zone }}
-    secretName: argocd-secret # do not change, this is provided by Argo CD
+    secretName: argocd-tls-secret # do not change, this is provided by Argo CD
+    #secretName: argocd-secret # do not change, this is provided by Argo CD
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
