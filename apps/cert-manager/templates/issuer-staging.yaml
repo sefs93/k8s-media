@@ -12,7 +12,7 @@ spec:
     - dns01:
         {{ .Values.dns.provider }}:
           email: {{ .Values.dns.email }}
-          apiTokenSecretKeyRef:
+          apiTokenSecretRef:
             name: dns-api-token
             key: api-token
       selector:
