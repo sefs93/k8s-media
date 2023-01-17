@@ -11,7 +11,7 @@ metadata:
 spec:
   rules:
   - host: k8s.{{ .Values.dns.zone }}
-    http:
+    https:
       paths:
       - path: /
         pathType: Prefix
@@ -19,7 +19,7 @@ spec:
           service:
             name: kubernetes-dashboard
             port:
-              number: 8443
+              name: https
   tls:
   - hosts:
     - k8s.{{ .Values.dns.zone }}
