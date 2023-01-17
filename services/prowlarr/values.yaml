@@ -1,0 +1,79 @@
+# Default values for transmission.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: linuxserver/prowlarr
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 9696
+
+ingress:
+  enabled: true
+  className: ""
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    external-dns.alpha.kubernetes.io/hostname: "sefs.uk"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  hosts:
+    - host: prowlarr.sefs.uk
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: prowlarr-tls-cert
+      hosts:
+        - prowlarr.sefs.uk
+
+env:
+  - name: PUID
+    value: "1000"
+  - name: PGID
+    value: "1000"
+  - name: TZ
+    value: "America/Toronto"
+
+volumes:
+  - name: nfs-config
+    nfs:
+      server: nas.sefs.uk
+      path: /conf/k8s
+
+volumeMounts:
+    - name: nfs-config
+      mountPath: "/config"
+      subPath: "prowlarr"
