@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace: kube-system
+    namespace: prowlarr
   project: {{ .Values.org.project }}
   source:
     path: services/prowlarr
