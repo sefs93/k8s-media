@@ -9,7 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   rules:
-  - host: admin.{{ .Values.domainName }}
+  - host: k8s.{{ .Values.dns.zone }}
     http:
       paths:
       - path: /
