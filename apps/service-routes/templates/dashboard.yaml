@@ -19,7 +19,7 @@ spec:
           service:
             name: kubernetes-dashboard
             port:
-              name: http
+              name: https
   tls:
   - hosts:
     - k8s.{{ .Values.dns.zone }}
