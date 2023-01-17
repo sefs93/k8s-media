@@ -23,15 +23,9 @@ spec:
         - --provider={{ .Values.dns.provider }}
         - --log-level=debug
         env:
-        - name: CF_API_KEY
+        - name: CF_API_TOKEN
           valueFrom:
             secretKeyRef:
-              name: dns-creds
-              key: api-key
-              optional: false
-        - name: CF_API_EMAIL
-          valueFrom:
-            secretKeyRef:
-              name: dns-creds
-              key: email
+              name: dns-api-token
+              key: api-token
               optional: false
