@@ -1,11 +1,11 @@
-# Default values for transmission.
+# Default values for radarr.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: linuxserver/transmission
+  repository: linuxserver/radarr
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
@@ -38,7 +38,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 9091
+  port: 7878
 
 ingress:
   enabled: true
@@ -50,14 +50,14 @@ ingress:
     external-dns.alpha.kubernetes.io/hostname: "sefs.uk"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
   hosts:
-    - host: transmission.sefs.uk
+    - host: radarr.sefs.uk
       paths:
         - path: /
           pathType: ImplementationSpecific
   tls:
-    - secretName: transmission-tls-cert
+    - secretName: radarr-tls-cert
       hosts:
-        - transmission.sefs.uk
+        - radarr.sefs.uk
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -91,8 +91,6 @@ env:
     value: "1000"
   - name: TZ
     value: "America/Toronto"
-  - name: TRANSMISSION_DOWNLOAD_DIR
-    value: "/downloads"
 
 volumes:
   - name: nfs-media
@@ -102,11 +100,15 @@ volumes:
   - name: nfs-config
     nfs:
       server: nas.sefs.uk
-      path: /conf/k8s/transmission-data
+      path: /conf/k8s/radarr
 
 volumeMounts:
     - name: nfs-config
       mountPath: "/config"
     - name: nfs-media
+      mountPath: "/movies"
+      subPath: "movies"
+    - name: nfs-media
       mountPath: "/downloads"
+      subPath: "downloads"
 
