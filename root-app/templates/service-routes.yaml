@@ -17,6 +17,7 @@ spec:
     helm:
       valueFiles:
       - ../../global-values/dns.yaml
+      - ../../global-values/argo.yaml
   syncPolicy:
     automated: {}
     syncOptions:
