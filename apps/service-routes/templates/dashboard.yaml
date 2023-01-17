@@ -11,7 +11,7 @@ metadata:
 spec:
   rules:
   - host: k8s.{{ .Values.dns.zone }}
-    https:
+    http:
       paths:
       - path: /
         pathType: Prefix
