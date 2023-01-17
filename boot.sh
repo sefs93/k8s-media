@@ -6,7 +6,7 @@ microk8s config > ~/.kube/config
 
 microk8s kubectl create namespace argocd
 microk8s kubectl apply -n argocd -f bootstrap/argocd-install.yaml 
-helm install mediacenter mediacenter
+helm install root-app root-app
 # expose argo through proxy
 # kubectl port-forward podname 8080:8080 -n argocd
 

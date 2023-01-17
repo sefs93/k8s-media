@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager
+  name: external-dns
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace: cert-manager
+    namespace: external-dns
   project: {{ .Values.org.project }}
   source:
-    path: apps/cert-manager
+    path: base/external-dns
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: service-routes
+  name: prowlarr
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -11,12 +11,12 @@ spec:
     namespace: kube-system
   project: {{ .Values.org.project }}
   source:
-    path: apps/service-routes
+    path: service/prowlarr
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
-    helm:
-      valueFiles:
-      - ../../global-values/dns.yaml
+#    helm:
+#      valueFiles:
+#      - ../../global-values/dns.yaml
   syncPolicy:
     automated: {}
     syncOptions:
