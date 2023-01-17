@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-tls-secret-test
+  namespace: argocd
+spec:
+  commonName: "*.argocd.sefs.uk"
+  dnsNames:
+    - "argocd.sefs.uk"
+    - "*.argocd.sefs.uk"
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-staging
+  secretName: argocd-tls-secret-test
+
