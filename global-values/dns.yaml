@@ -1,0 +1,4 @@
+dns:
+  zone: "sefs.uk"
+  provider: "cloudflare"
+

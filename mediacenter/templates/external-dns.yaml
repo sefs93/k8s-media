@@ -16,7 +16,7 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
       valueFiles:
-      - ../local-values/dns.yaml
+      - ../../local-values/dns.yaml
   syncPolicy:
     automated: {}
     syncOptions:

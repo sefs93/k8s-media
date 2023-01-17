@@ -12,3 +12,6 @@ helm install mediacenter mediacenter
 
 # Initial argocd password:
 # kubectl get secrets/argocd-initial-admin-secret -n argocd --template={{.data.password}} | base64 -d
+
+kubectl create ns external-dns
+kubectl apply -f local-files/dns.yaml

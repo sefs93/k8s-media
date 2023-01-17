@@ -22,6 +22,14 @@ spec:
         - --provider={{ .Values.dns.provider }}
         env:
         - name: CF_API_KEY
-          value: {{ .Values.dns.user.key }}
+          valueFrom:
+            secretKeyRef:
+              name: dns-creds
+              key: api-key
+              optional: false
         - name: CF_API_EMAIL
-          value: {{ .Values.dns.user.name }}
+          valueFrom:
+            secretKeyRef:
+              name: dns-creds
+              key: email
+              optional: false
