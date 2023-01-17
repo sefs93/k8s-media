@@ -21,6 +21,7 @@ spec:
         - --source=service
         - --domain-filter={{ .Values.dns.zone }}
         - --provider={{ .Values.dns.provider }}
+        - --log-level=debug
         env:
         - name: CF_API_KEY
           valueFrom:
