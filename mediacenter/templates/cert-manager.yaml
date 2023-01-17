@@ -17,7 +17,6 @@ spec:
     helm:
       valueFiles:
       - ../../global-values/dns.yaml
-      - ../../local-files/values.yaml
   syncPolicy:
     automated: {}
     syncOptions:

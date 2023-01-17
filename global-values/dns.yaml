@@ -1,4 +1,4 @@
 dns:
   zone: "sefs.uk"
   provider: "cloudflare"
-
+  email: "sefs93@gmail.com"
