@@ -10,11 +10,11 @@ spec:
       name: letsencrypt-staging
     solvers:
     - dns01:
-      {{ .Values.dns.provider }}:
-        email: {{ .Values.dns.email }}
-        apiTokenSecretKeyRef:
-          name: dns-api-token
-          key: api-token
+        {{ .Values.dns.provider }}:
+          email: {{ .Values.dns.email }}
+          apiTokenSecretKeyRef:
+            name: dns-api-token
+            key: api-token
       selector:
         dnsZones:
           - {{ .Values.dns.zone }}
