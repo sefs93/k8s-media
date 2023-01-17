@@ -32,7 +32,6 @@ spec:
       volumeMounts:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "transmission.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
