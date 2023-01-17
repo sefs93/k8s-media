@@ -1,0 +1,8 @@
+org:
+  project: "default"
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/sefs93/k8s-media.git
+    targetRevision: HEAD
