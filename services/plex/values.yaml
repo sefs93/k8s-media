@@ -93,6 +93,8 @@ env:
     value: "America/Toronto"
   - name: VERSION
     value: "docker"
+  - name: PLEX_CLAIM
+    value: "claim-tvx2SawnN1xJ-ggVHv6e"
 
 volumes:
   - name: nfs-media
