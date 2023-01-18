@@ -109,4 +109,4 @@ volumeMounts:
       mountPath: "/config"
     - name: nfs-media
       mountPath: "/downloads"
-
+      subPath: "downloads"
