@@ -5,9 +5,9 @@ ingress-nginx:
     kind: DaemonSet
     metrics:
       enabled: true
-    extraArgs:
-      default-ssl-certificate: "argocd/argocd-tls-cert"
-      enable-ssl-passthrough: true
+    #extraArgs:
+    #  default-ssl-certificate: "argocd/argocd-tls-cert"
+    #  enable-ssl-passthrough: true
     resources:
       limits:
         cpu: 100m
