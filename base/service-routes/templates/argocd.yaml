@@ -5,10 +5,10 @@ metadata:
   namespace: argocd
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    #nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/hostname: {{ .Values.dns.zone }}
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    #cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   rules:
   - host: argocd.{{ .Values.dns.zone }}
@@ -21,10 +21,10 @@ spec:
             name: argocd-server
             port:
               name: http
-  tls:
-  - hosts:
-    - argocd.{{ .Values.dns.zone }}
-    secretName: argocd-tls-cert
+  #tls:
+  #- hosts:
+  #  - argocd.{{ .Values.dns.zone }}
+  #  secretName: argocd-tls-cert
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -35,7 +35,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
     external-dns.alpha.kubernetes.io/hostname: grpc.argocd.{{ .Values.dns.zone }}
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    #cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   rules:
   - http:
@@ -48,7 +48,7 @@ spec:
             port:
               name: https
     host: grpc.argocd.{{ .Values.dns.zone }}
-  tls:
-  - hosts:
-    - grpc.argocd.{{ .Values.dns.zone }}
-    secretName: grpc-argocd-tls-cert
+  #tls:
+  #- hosts:
+  #  - grpc.argocd.{{ .Values.dns.zone }}
+  #  secretName: grpc-argocd-tls-cert
