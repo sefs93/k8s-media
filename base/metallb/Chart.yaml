@@ -8,4 +8,4 @@ appVersion: 0.0.1
 dependencies:
 - name: metallb
   repository: https://metallb.github.io/metallb
-  version: 0.13.7
+  version: 0.13.11
