@@ -10,8 +10,8 @@ ingress-nginx:
     #  enable-ssl-passthrough: true
     resources:
       limits:
-        cpu: 100m
-        memory: 90Mi
+        cpu: 1000m
+        memory: 900Mi
       requests:
-        cpu: 100m
-        memory: 90Mi
+        cpu: 1000m
+        memory: 900Mi
