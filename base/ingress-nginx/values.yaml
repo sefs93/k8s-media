@@ -1,5 +1,11 @@
 ingress-nginx:
+  annotations:
+    nginx.ingress.kubernetes.io/enable-modsecurity: "false"
   controller:
+    livenessProbe:
+      timeoutSeconds: 60
+    readinessProbe:
+      timeoutSeconds: 60
     hostPort:
       enabled: true
     kind: DaemonSet
